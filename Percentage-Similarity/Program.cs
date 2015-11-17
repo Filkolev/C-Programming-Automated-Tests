@@ -44,7 +44,8 @@
                                 var file1Content = whitespaceRegex.Replace(File.ReadAllText(file1), " ");
                                 var file2Content = whitespaceRegex.Replace(File.ReadAllText(file2), " ");
                                 var similarity = file1Content.CalculateSimilarity(file2Content);
-
+                                
+                                // Extract username; TODO: use .Substring with .LastIndexOf
                                 output.WriteLineAsync($"{similarity:F3},{file1.Split('\\')[8]},{file2.Split('\\')[8]}");
                             }
                             catch (IOException)
